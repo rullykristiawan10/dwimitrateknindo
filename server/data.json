@@ -1,0 +1,234 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "image": "/009465700_1672818990-soho.jpg",
+      "badge": "Farmasi",
+      "category": "Healthcare",
+      "title": "PT. SOHO Global Health",
+      "description": "Instalasi sistem HVAC & tata udara presisi untuk fasilitas produksi farmasi.",
+      "popular": true
+    },
+    {
+      "id": 3,
+      "image": "/business1.jpg",
+      "badge": "Industri",
+      "category": "Infrastruktur",
+      "title": "Instalasi Chiller & Piping Sentral",
+      "description": "Pemasangan sistem perpipaan chiller dan sistem pendingin sentral terintegrasi.",
+      "popular": true
+    },
+    {
+      "id": 4,
+      "image": "/mayora.jpg",
+      "badge": "Manufaktur",
+      "category": "FMCG",
+      "title": "MAYORA GROUP (PT. Tirta Fresindo)",
+      "description": "Instalasi sistem pendingin ruangan pabrik berskala besar dan pemeliharaan.",
+      "popular": false
+    },
+    {
+      "id": 5,
+      "image": "/capri.jpg",
+      "badge": "Komersial",
+      "category": "Building",
+      "title": "Fasilitas Gedung CAPRI",
+      "description": "Sistem sentralisasi pendingin ruangan dan distribusi tata udara komersial.",
+      "popular": false
+    },
+    {
+      "id": 1785422805339,
+      "title": "SANTOS JAYA ABADI SURABAYA",
+      "description": "PT Santos Jaya Abadi merupakan perusahaan ternama di Indonesia yang bergerak di bidang industri kopi dan minuman, dikenal luas melalui merek legendaris Kapal Api.",
+      "image": "/uploads/file-1785422805249-221030430.jpg",
+      "category": "Pre Cooling, Dehumidifier & Post Cooling",
+      "badge": "minuman",
+      "popular": true
+    }
+  ],
+  "articles": [
+    {
+      "id": 1,
+      "image": "/business1.jpg",
+      "date": "12 Agustus 2025",
+      "category": "Edukasi",
+      "title": "Pentingnya Perawatan AC Berkala",
+      "description": "Menjaga kebersihan dan performa sistem tata udara Anda agar tetap optimal dan hemat energi.",
+      "popular": true
+    },
+    {
+      "id": 2,
+      "image": "/mayora.jpg",
+      "date": "05 September 2025",
+      "category": "Teknologi",
+      "title": "Mengenal Sistem VRV/VRF",
+      "description": "Solusi pendinginan modern yang menawarkan efisiensi tinggi untuk gedung komersial.",
+      "popular": true
+    },
+    {
+      "id": 3,
+      "image": "/capri.jpg",
+      "date": "20 Oktober 2025",
+      "category": "Industri",
+      "title": "Memilih Chiller yang Tepat",
+      "description": "Panduan menentukan spesifikasi chiller industri sesuai dengan kebutuhan fasilitas Anda.",
+      "popular": false
+    },
+    {
+      "id": 4,
+      "image": "/business1.jpg",
+      "date": "25 Juli 2026",
+      "category": "Inovasi",
+      "title": "Tren Teknologi HVAC Ramah Lingkungan 2026",
+      "description": "Mengenal inovasi terbaru dalam sistem tata udara yang lebih hemat energi dan mendukung kelestarian alam.",
+      "popular": true
+    }
+  ],
+  "documents": [
+    {
+      "id": 1,
+      "title": "BRIESE AIR MODULAR AIR HANDLING UNIT | BAC/BBC Series",
+      "size": "4.5 MB",
+      "type": "PDF",
+      "file": "/BRIESE-AIR-AIR-HANDLING-UNIT-BORCHURE.pdf"
+    },
+    {
+      "id": 2,
+      "title": "BRIESE-DX-AIR-HANDLING-UNIT",
+      "size": "4.5 MB",
+      "type": "PDF",
+      "file": "/BRIESE-DX-AIR-HANDLING-UNIT-Compressed.pdf"
+    },
+    {
+      "id": 3,
+      "title": "Shitshudo-Inudtrial-Dehumidifier-V1-Brochure",
+      "size": "3.4 MB",
+      "type": "PDF",
+      "file": "/Shitshudo-Inudtrial-Dehumidifier-V1-Brochure.pdf"
+    },
+    {
+      "id": 1786461277932,
+      "title": "Shitsudo-Industrial-Dehumidifier-V2-Brochure",
+      "size": "6.91 MB",
+      "type": "PDF",
+      "file": "/uploads/file-1786461731564-972590944.pdf"
+    },
+    {
+      "id": 1786461803903,
+      "title": "LUTA-Brochure-LT-DR70-LT-1800K",
+      "size": "3.07 MB",
+      "type": "PDF",
+      "file": "/uploads/file-1786461803639-479969001.pdf"
+    },
+    {
+      "id": 1786461850410,
+      "title": "LUTA-Humidifier-Brochure",
+      "size": "2.26 MB",
+      "type": "PDF",
+      "file": "/uploads/file-1786461850076-775403174.pdf"
+    },
+    {
+      "id": 1786461881387,
+      "title": "LUTA-Industrial-Dehumidifier-V1",
+      "size": "3.55 MB",
+      "type": "PDF",
+      "file": "/uploads/file-1786461881050-460569237.pdf"
+    },
+    {
+      "id": 1786461911500,
+      "title": "LUTA-Industrial-Dehumidifier-V2",
+      "size": "2.40 MB",
+      "type": "PDF",
+      "file": "/uploads/file-1786461911171-757209474.pdf"
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "image": "/produk-mufy.png.jpg",
+      "title": "Muvy Dustcollector",
+      "description": "Sistem pengumpulan debu industri untuk menjaga kualitas udara ruang produksi.",
+      "tags": [
+        "Filtration",
+        "Industrial"
+      ],
+      "popular": true
+    },
+    {
+      "id": 2,
+      "image": "/1.png.jpg",
+      "title": "AIR COOLED DUCTED TYPE AIR CONDITIONER",
+      "description": "Dehumidifier portabel untuk mengontrol kelembapan ruangan dengan efisien.",
+      "tags": [
+        "Dehumidifier",
+        "Portable"
+      ],
+      "popular": false
+    },
+    {
+      "id": 3,
+      "image": "/Chiller.png.jpg",
+      "title": "Water Cooled Flooded Screw Chiller",
+      "description": "Sistem pendingin udara sentral kapasitas besar untuk kebutuhan industri.",
+      "tags": [
+        "Chiller",
+        "Industrial"
+      ],
+      "popular": false
+    },
+    {
+      "id": 4,
+      "image": "/2.png.jpg",
+      "title": "Shitsudo Wet Electrode Steam",
+      "description": "Humidifier industri dengan material stainless steel untuk ketahanan maksimal.",
+      "tags": [
+        "Humidifier",
+        "Industrial"
+      ],
+      "popular": true
+    },
+    {
+      "id": 5,
+      "image": "/3.png.jpg",
+      "title": "Shitsudo Industrial Dehumidifier",
+      "description": "Dehumidifier tipe kabinet untuk kontrol kelembapan presisi skala besar.",
+      "tags": [
+        "Dehumidifier",
+        "Cabinet"
+      ],
+      "popular": true
+    },
+    {
+      "id": 6,
+      "image": "/adi-Chiller.png.jpg",
+      "title": "Air Cooled Big Capacity Scroll Chiller",
+      "description": "Air Cooled Modular Chiller efisiensi tinggi untuk kebutuhan HVAC dan industri skala besar.",
+      "tags": [
+        "Chiller",
+        "Industrial",
+        "MizuAir"
+      ],
+      "popular": false
+    },
+    {
+      "id": 1785856918471,
+      "title": "Industrial Dehumidifier Economical Series",
+      "description": "Dirancang untuk memberikan kemampuan penghilangan kelembapan berkapasitas tinggi—mulai dari 34 hingga 250 pint per hari—sembari mengutamakan harga beli awal yang lebih rendah atau konsumsi energi yang lebih hemat",
+      "image": "/uploads/file-1785856918461-197688595.png",
+      "tags": [
+        "Dehumidifier"
+      ],
+      "popular": false
+    },
+    {
+      "id": 1785856974165,
+      "title": "Shitsudo Desiccant Dehumidifier",
+      "description": "Sistem pengendalian iklim industri berkinerja tinggi yang diproduksi oleh PT Shitsudo Thermal Engineering.",
+      "image": "/uploads/file-1785856974146-275934317.png",
+      "tags": [
+        "Dehumidifier"
+      ],
+      "popular": false
+    }
+  ]
+}
