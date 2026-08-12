@@ -168,7 +168,7 @@ function Navbar() {
           <div className="nav-socials">
             <a href="https://www.instagram.com/dwimitrateknindo/" target="_blank" rel="noreferrer"><TbBrandInstagram /></a>
             <a href="https://www.youtube.com/watch?v=IdyArhHVrGc&t=2s" target="_blank" rel="noreferrer"><TbBrandYoutube /></a>
-            <a href="#"><TbBrandLinkedin /></a>
+            <a href="https://www.linkedin.com/in/pt-dwi-mitra-teknindo-9ab99a1a9" target="_blank" rel="noreferrer"><TbBrandLinkedin /></a>
           </div>
         </div>
       </div>
