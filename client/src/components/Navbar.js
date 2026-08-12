@@ -166,7 +166,7 @@ function Navbar() {
         </ul>
         <div className="nav-right">
           <div className="nav-socials">
-            <a href="#"><TbBrandInstagram /></a>
+            <a href="https://www.instagram.com/dwimitrateknindo/" target="_blank" rel="noreferrer"><TbBrandInstagram /></a>
             <a href="#"><TbBrandYoutube /></a>
             <a href="#"><TbBrandLinkedin /></a>
           </div>
