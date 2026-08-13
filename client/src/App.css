@@ -176,7 +176,7 @@ button, input, select, textarea { font: inherit; }
 /* Brands Marquee */
 .brands { background: var(--white); padding: 60px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); position: relative; overflow: hidden; }
 .brands-label { text-align: center; font-size: 13px; font-weight: 800; letter-spacing: 2px; color: var(--gray); text-transform: uppercase; margin-bottom: 40px; }
-.brands-marquee { overflow: hidden; position: relative; width: 100%; mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent); -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent); }
+.brands-marquee { overflow: hidden; position: relative; width: 100%; -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent); mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent); }
 .brands-track { display: flex; width: max-content; }
 .brands-group { display: flex; gap: 20px; padding-right: 20px; animation: scrollMarquee 25s linear infinite; }
 .brands-track:hover .brands-group { animation-play-state: paused; }
