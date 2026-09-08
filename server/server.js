@@ -337,11 +337,15 @@ if (fs.existsSync(clientBuildPath)) {
   });
 }
 
-// Initialize DB then start server
-initDB().then(() => {
-  app.listen(port, () => {
-    console.log(`Server berjalan di http://localhost:${port}`);
+// Initialize DB then start server if run directly
+if (require.main === module) {
+  initDB().then(() => {
+    app.listen(port, () => {
+      console.log(`Server berjalan di http://localhost:${port}`);
+    });
+  }).catch(err => {
+    console.error('Failed to initialize database:', err);
   });
-}).catch(err => {
-  console.error('Failed to initialize database:', err);
-});
+}
+
+module.exports = app;
