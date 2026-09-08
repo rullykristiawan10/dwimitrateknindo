@@ -3,20 +3,13 @@ const { Pool } = require('pg');
 const fs = require('fs');
 const path = require('path');
 
-const pool = new Pool(
-  process.env.DATABASE_URL
-    ? { 
-        connectionString: process.env.DATABASE_URL,
-        ssl: process.env.DATABASE_URL.includes('localhost') ? false : { rejectUnauthorized: false }
-      }
-    : {
-        user: process.env.DB_USER || 'admin',
-        host: process.env.DB_HOST || 'localhost',
-        database: process.env.DB_NAME || 'dwimitra_db',
-        password: process.env.DB_PASSWORD || 'password',
-        port: process.env.DB_PORT || 5432,
-      }
-);
+const DEFAULT_SUPABASE_URL = 'postgresql://postgres:Mitraclimapro456%40@db.gjhlukzgpeuzvgzrudye.supabase.co:5432/postgres';
+const connectionString = process.env.DATABASE_URL || DEFAULT_SUPABASE_URL;
+
+const pool = new Pool({
+  connectionString: connectionString,
+  ssl: connectionString.includes('localhost') ? false : { rejectUnauthorized: false }
+});
 
 async function initDB() {
   const client = await pool.connect();
