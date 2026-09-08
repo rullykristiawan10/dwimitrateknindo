@@ -81,6 +81,18 @@ async function initDB() {
       )
     `);
 
+    await client.query(`
+      CREATE TABLE IF NOT EXISTS events (
+        id BIGINT PRIMARY KEY,
+        title VARCHAR(255),
+        date VARCHAR(100),
+        location VARCHAR(255),
+        type VARCHAR(100),
+        logo VARCHAR(255),
+        flag VARCHAR(50)
+      )
+    `);
+
     // Check if we need to seed data from data.json
     const res = await client.query('SELECT count(*) FROM projects');
     if (parseInt(res.rows[0].count) === 0) {
@@ -126,6 +138,24 @@ async function initDB() {
           }
         }
         console.log('Seeding complete.');
+      }
+    }
+
+    const eventsRes = await client.query('SELECT count(*) FROM events');
+    if (parseInt(eventsRes.rows[0].count) === 0) {
+      const dataFile = path.join(__dirname, 'data.json');
+      if (fs.existsSync(dataFile)) {
+        const fileContent = fs.readFileSync(dataFile, 'utf8');
+        const dbJson = JSON.parse(fileContent);
+        if (dbJson.events && dbJson.events.length > 0) {
+          for (const ev of dbJson.events) {
+            await client.query(
+              'INSERT INTO events (id, title, date, location, type, logo, flag) VALUES ($1, $2, $3, $4, $5, $6, $7) ON CONFLICT DO NOTHING',
+              [ev.id, ev.title, ev.date, ev.location, ev.type, ev.logo, ev.flag]
+            );
+          }
+          console.log('Events seeded.');
+        }
       }
     }
 

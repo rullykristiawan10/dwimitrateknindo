@@ -1,8 +1,26 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { TbCalendarEvent, TbBuilding } from 'react-icons/tb';
-import { events } from '../data';
+import { events as defaultEvents } from '../data';
 
 function Events() {
+  const [eventList, setEventList] = useState(defaultEvents);
+
+  useEffect(() => {
+    fetch('/api/events')
+      .then((res) => {
+        if (!res.ok) throw new Error('Network response failed');
+        return res.json();
+      })
+      .then((data) => {
+        if (Array.isArray(data) && data.length > 0) {
+          setEventList(data);
+        }
+      })
+      .catch((err) => {
+        console.error('Error fetching events from API:', err);
+      });
+  }, []);
+
   return (
     <section className="events-section">
       <div className="events-bg-top"></div>
@@ -13,11 +31,11 @@ function Events() {
           <h2 className="events-title">Events</h2>
         </div>
         <div className="events-grid">
-          {events.map((event) => (
+          {eventList.map((event) => (
             <div key={event.id} className="event-card">
               <div className="event-header">
                 <div className="event-logo">
-                  <img src={event.logo} alt={event.title} />
+                  <img src={event.logo || '/logo-trannn.png'} alt={event.title} />
                 </div>
                 <div className="event-flag" title="Country Flag">
                   {event.flag}

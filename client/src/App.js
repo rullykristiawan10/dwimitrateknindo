@@ -7,6 +7,7 @@ import AdminProducts from './pages/admin/AdminProducts';
 import AdminProjects from './pages/admin/AdminProjects';
 import AdminArticles from './pages/admin/AdminArticles';
 import AdminDocuments from './pages/admin/AdminDocuments';
+import AdminEvents from './pages/admin/AdminEvents';
 import Login from './pages/admin/Login';
 import ProtectedRoute from './components/ProtectedRoute';
 import Home from './pages/Home';
@@ -22,11 +23,19 @@ import OurPartner from './pages/OurPartner';
 import DocumentDownload from './pages/DocumentDownload';
 
 function ScrollToTop() {
-  const { pathname } = useLocation();
+  const { pathname, search } = useLocation();
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [pathname]);
+    
+    // Track SPA pageview in Google Analytics GA4
+    const gaId = process.env.REACT_APP_GA_MEASUREMENT_ID;
+    if (typeof window.gtag === 'function' && gaId && gaId !== 'G-XXXXXXXXXX') {
+      window.gtag('config', gaId, {
+        page_path: pathname + search,
+      });
+    }
+  }, [pathname, search]);
 
   return null;
 }
@@ -47,6 +56,7 @@ function App() {
             <Route path="projects" element={<AdminProjects />} />
             <Route path="articles" element={<AdminArticles />} />
             <Route path="documents" element={<AdminDocuments />} />
+            <Route path="events" element={<AdminEvents />} />
             <Route path="*" element={<AdminDashboard />} />
           </Route>
         </Route>

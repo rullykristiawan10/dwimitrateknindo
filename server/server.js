@@ -279,6 +279,55 @@ app.delete('/api/documents/:id', authenticateToken, async (req, res) => {
   }
 });
 
+// --- Events CRUD API ---
+app.get('/api/events', async (req, res) => {
+  try {
+    const { rows } = await pool.query('SELECT * FROM events ORDER BY id DESC');
+    res.json(rows);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+app.post('/api/events', authenticateToken, async (req, res) => {
+  const { title, date, location, type, logo, flag } = req.body;
+  const id = Date.now();
+  try {
+    const { rows } = await pool.query(
+      'INSERT INTO events (id, title, date, location, type, logo, flag) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *',
+      [id, title, date, location, type, logo, flag]
+    );
+    res.status(201).json(rows[0]);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+app.put('/api/events/:id', authenticateToken, async (req, res) => {
+  const { id } = req.params;
+  const { title, date, location, type, logo, flag } = req.body;
+  try {
+    const { rows } = await pool.query(
+      'UPDATE events SET title=$1, date=$2, location=$3, type=$4, logo=$5, flag=$6 WHERE id=$7 RETURNING *',
+      [title, date, location, type, logo, flag, id]
+    );
+    if (rows.length === 0) return res.status(404).json({ error: 'Not found' });
+    res.json(rows[0]);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+app.delete('/api/events/:id', authenticateToken, async (req, res) => {
+  try {
+    const { rowCount } = await pool.query('DELETE FROM events WHERE id=$1', [req.params.id]);
+    if (rowCount === 0) return res.status(404).json({ error: 'Not found' });
+    res.json({ message: 'Deleted' });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
 // Serve Frontend in Production
 const clientBuildPath = path.join(__dirname, '../client/build');
 if (fs.existsSync(clientBuildPath)) {

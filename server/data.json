@@ -230,5 +230,43 @@
       ],
       "popular": false
     }
+  ],
+  "events": [
+    {
+      "id": 1,
+      "title": "HVAC & Refrigeration Expo",
+      "date": "10 Sep - 12 Sep 2026",
+      "location": "Jakarta, Indonesia",
+      "type": "Exhibition",
+      "logo": "/images__1_-removebg-preview.png",
+      "flag": "🇮🇩"
+    },
+    {
+      "id": 2,
+      "title": "PharmaTech Expo & LabTech Expo",
+      "date": "20 Aug - 22 Aug 2026",
+      "location": "Gandhi Nagar, India",
+      "type": "Exhibition",
+      "logo": "/brand-panasonic.png",
+      "flag": "🇮🇳"
+    },
+    {
+      "id": 3,
+      "title": "The Battery Show Asia",
+      "date": "02 Sep - 05 Sep 2026",
+      "location": "Indonesia",
+      "type": "Conference",
+      "logo": "/brand-daikin.png",
+      "flag": "🇮🇩"
+    },
+    {
+      "id": 4,
+      "title": "Pharmaconex Egypt",
+      "date": "01 Sep - 03 Sep 2026",
+      "location": "Cairo, Egypt",
+      "type": "Conference",
+      "logo": "/brand-york.png",
+      "flag": "🇪🇬"
+    }
   ]
 }

@@ -75,6 +75,11 @@ function AdminProducts() {
     e.preventDefault();
     setIsSubmitting(true);
     const token = localStorage.getItem('adminToken');
+    if (!token) {
+      alert('Sesi login telah berakhir. Silakan login kembali.');
+      setIsSubmitting(false);
+      return;
+    }
     try {
       let formattedImage = formData.image;
       
@@ -86,6 +91,12 @@ function AdminProducts() {
           headers: { 'Authorization': `Bearer ${token}` },
           body: uploadData
         });
+        if (!uploadRes.ok) {
+          const uploadErr = await uploadRes.json();
+          alert('Gagal mengunggah gambar: ' + (uploadErr.error || 'Terjadi kesalahan'));
+          setIsSubmitting(false);
+          return;
+        }
         const uploadResult = await uploadRes.json();
         if (uploadResult.url) {
           formattedImage = uploadResult.url;
@@ -101,8 +112,9 @@ function AdminProducts() {
       const tagsArray = formData.tags.split(',').map(tag => tag.trim()).filter(tag => tag !== '');
       const dataToSave = { ...formData, tags: tagsArray, image: formattedImage };
 
+      let res;
       if (currentProduct) {
-        await fetch(`/api/products/${currentProduct.id}`, {
+        res = await fetch(`/api/products/${currentProduct.id}`, {
           method: 'PUT',
           headers: { 
             'Content-Type': 'application/json',
@@ -111,7 +123,7 @@ function AdminProducts() {
           body: JSON.stringify(dataToSave)
         });
       } else {
-        await fetch('/api/products', {
+        res = await fetch('/api/products', {
           method: 'POST',
           headers: { 
             'Content-Type': 'application/json',
@@ -120,10 +132,20 @@ function AdminProducts() {
           body: JSON.stringify(dataToSave)
         });
       }
+
+      if (!res.ok) {
+        const resErr = await res.json();
+        alert('Gagal menyimpan produk: ' + (resErr.error || 'Terjadi kesalahan'));
+        setIsSubmitting(false);
+        return;
+      }
+
+      alert('Produk berhasil disimpan!');
       fetchProducts();
       closeModal();
     } catch (err) {
       console.error('Error saving product:', err);
+      alert('Terjadi kesalahan koneksi saat menyimpan produk.');
     } finally {
       setIsSubmitting(false);
     }

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Outlet, Link, useLocation, useNavigate } from 'react-router-dom';
-import { TbDashboard, TbBox, TbBriefcase, TbArticle, TbSettings, TbMenu2, TbX, TbLogout, TbFileDescription } from 'react-icons/tb';
+import { TbDashboard, TbBox, TbBriefcase, TbArticle, TbSettings, TbMenu2, TbX, TbLogout, TbFileDescription, TbCalendarEvent } from 'react-icons/tb';
 import '../Admin.css';
 
 function AdminLayout() {
@@ -22,7 +22,8 @@ function AdminLayout() {
     { name: 'Products', path: '/admin/products', icon: <TbBox /> },
     { name: 'Projects', path: '/admin/projects', icon: <TbBriefcase /> },
     { name: 'Articles', path: '/admin/articles', icon: <TbArticle /> },
-    { name: 'Documents', path: '/admin/documents', icon: <TbFileDescription /> }
+    { name: 'Documents', path: '/admin/documents', icon: <TbFileDescription /> },
+    { name: 'Events', path: '/admin/events', icon: <TbCalendarEvent /> }
   ];
 
   return (

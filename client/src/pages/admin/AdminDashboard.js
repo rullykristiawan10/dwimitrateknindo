@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { TbBox, TbBriefcase, TbUsers, TbTrendingUp, TbArticle, TbFileDescription } from 'react-icons/tb';
+import { TbBox, TbBriefcase, TbUsers, TbTrendingUp, TbArticle, TbFileDescription, TbCalendarEvent } from 'react-icons/tb';
 
 function AdminDashboard() {
   const [products, setProducts] = useState([]);
   const [projects, setProjects] = useState([]);
   const [articles, setArticles] = useState([]);
   const [documents, setDocuments] = useState([]);
+  const [events, setEvents] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -13,13 +14,15 @@ function AdminDashboard() {
       fetch('/api/products').then(res => res.json()),
       fetch('/api/projects').then(res => res.json()),
       fetch('/api/articles').then(res => res.json()),
-      fetch('/api/documents').then(res => res.json())
+      fetch('/api/documents').then(res => res.json()),
+      fetch('/api/events').then(res => res.json())
     ])
-    .then(([productsData, projectsData, articlesData, documentsData]) => {
+    .then(([productsData, projectsData, articlesData, documentsData, eventsData]) => {
       setProducts(productsData);
       setProjects(projectsData);
       setArticles(articlesData);
       setDocuments(documentsData);
+      setEvents(Array.isArray(eventsData) ? eventsData : []);
       setLoading(false);
     })
     .catch(err => {
@@ -33,6 +36,7 @@ function AdminDashboard() {
     { title: 'Total Proyek', value: projects.length, icon: <TbBriefcase />, color: '#10b981' },
     { title: 'Total Artikel', value: articles.length, icon: <TbArticle />, color: '#f59e0b' },
     { title: 'Total Dokumen', value: documents.length, icon: <TbFileDescription />, color: '#8b5cf6' },
+    { title: 'Total Event', value: events.length, icon: <TbCalendarEvent />, color: '#ec4899' },
   ];
 
   // Get 3 latest projects
