@@ -280,7 +280,7 @@ app.delete('/api/documents/:id', authenticateToken, async (req, res) => {
 });
 
 // --- Events CRUD API ---
-app.get('/api/events', async (req, res) => {
+app.get(['/api/events', '/events'], async (req, res) => {
   try {
     const { rows } = await pool.query('SELECT * FROM events ORDER BY id DESC');
     res.json(rows);
@@ -289,7 +289,7 @@ app.get('/api/events', async (req, res) => {
   }
 });
 
-app.post('/api/events', authenticateToken, async (req, res) => {
+app.post(['/api/events', '/events'], authenticateToken, async (req, res) => {
   const { title, date, location, type, logo, flag } = req.body;
   const id = Date.now();
   try {
@@ -303,7 +303,7 @@ app.post('/api/events', authenticateToken, async (req, res) => {
   }
 });
 
-app.put('/api/events/:id', authenticateToken, async (req, res) => {
+app.put(['/api/events/:id', '/events/:id'], authenticateToken, async (req, res) => {
   const { id } = req.params;
   const { title, date, location, type, logo, flag } = req.body;
   try {
@@ -318,7 +318,7 @@ app.put('/api/events/:id', authenticateToken, async (req, res) => {
   }
 });
 
-app.delete('/api/events/:id', authenticateToken, async (req, res) => {
+app.delete(['/api/events/:id', '/events/:id'], authenticateToken, async (req, res) => {
   try {
     const { rowCount } = await pool.query('DELETE FROM events WHERE id=$1', [req.params.id]);
     if (rowCount === 0) return res.status(404).json({ error: 'Not found' });
